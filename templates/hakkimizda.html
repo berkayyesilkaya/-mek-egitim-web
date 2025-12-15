@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hakkımızda | MEK Eğitim Danışmanlık</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <a href="{{ url_for('home') }}">MEK</a>
+      </div>
+
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}#iletisim">İLETİŞİM</a>
+        <a href="{{ url_for('blog') }}">BLOG</a>
+        <a href="{{ url_for('services') }}">HİZMETLER</a>
+        <a href="{{ url_for('about') }}" class="active">HAKKIMIZDA</a>
+        <a href="{{ url_for('home') }}">ANASAYFA</a>
+      </nav>
+      
+      <div class="search-box">
+        <input type="text" placeholder="Ara...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-header about-header-bg">
+    <div class="section-content">
+      <h1>HAKKIMIZDA</h1>
+      <p>Eğitimde güven ve başarının değişmeyen adresi; geleceğinizi birlikte inşa ediyoruz.</p>
+    </div>
+  </section>
+
+  <section class="company-profile-section">
+    <div class="section-content">
+      <h2>MEK EĞİTİM DANIŞMANLIK</h2>
+      
+      <div class="company-full-text">
+        <p>
+          2019 yılından bu yana eğitim alanında hizmet veren bir eğitim danışmanlık firması olarak, öğrenme sürecine yeni bir soluk getirdiğimizi; ailemize katılan öğrencilerimizden ve ebeveynlerimizden aldığımız geri bildirimler ile sahip olduğumuz tecrübeyi vizyoner bir yaklaşımla birleştirerek güvenle ifade edebiliyoruz.
+        </p>
+        <p>
+          Öğrencilerimizin motivasyonunu güçlendirmekten ders çalışma sürecine sağlıklı bir başlangıç yapmalarına, sınıf düzeyine uygun sınav hazırlık planlarını oluşturmaktan uygulama aşamasını en verimli hâle getirmeye kadar her adımda yanlarında olmaktan gurur duyuyoruz.
+        </p>
+        <p>
+          Eğitim öğretim süreçlerinde asıl öznenin öğrenci olduğunun bilinciyle hareket ediyor, sunduğumuz tüm hizmetleri bu doğrultuda destekleyici bir yapıda tasarlıyoruz. Uzun soluklu merkezi sınav hazırlıklarının öğrencilerde yaratabileceği yalnızlık duygusunu göz önünde bulundurarak, onlara güçlü bir “aile” hissi sunmayı önemsiyoruz.
+        </p>
+        <p>
+          Eğitimin içinden gelen; geçmişte farklı basamaklardaki sınavlara hazırlanmış ve hâlen hazırlanmaya devam eden deneyimli eğitim kadromuzla öğrencilerimizle bir abi–kardeş, abla–kardeş bağı kuruyoruz. Kendi kardeşlerimize gösterdiğimiz özen ve verdiğimiz samimi öğütleri, Türkiye’nin dört bir yanındaki öğrencilerimizle aynı içtenlikle paylaşıyoruz.
+        </p>
+
+        <div class="vision-mission-wrapper" style="margin-top: 40px;">
+            <h3>VİZYONUMUZ</h3>
+            <p>
+                Eğitim danışmanlığında küresel standartları yakalayarak, her öğrencinin potansiyelini en üst düzeye çıkaran, yenilikçi, güvenilir ve sürdürülebilir başarı odaklı lider bir kuruluş olmak. Geleceğin dünyasında söz sahibi olacak, özgüveni yüksek, donanımlı bireylerin yetişmesine öncülük etmek.
+            </p>
+
+            <h3 style="margin-top: 30px;">MİSYONUMUZ</h3>
+            <p>
+                Öğrencilerimizin bireysel farklılıklarını gözeterek, onlara en uygun akademik ve kişisel gelişim haritasını çizmek; sınav süreçlerinde sadece akademik değil, psikolojik ve sosyal destek de sağlayarak mutlu ve başarılı bireyler olmalarına katkıda bulunmak. Dürüstlük, şeffaflık ve samimiyet ilkeleriyle, eğitim yolculuğunda ailelerin ve gençlerin en güvenilir yol arkadaşı olmak.
+            </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="full-team-section">
+    <div class="section-content">
+      <h2>KURUCU EKİP</h2>
+      
+      <div class="team-list">
+        
+        <div class="team-card-horizontal">
+          <div class="member-img">
+            <img src="{{ url_for('static', filename='images/kaan.jpg') }}" alt="Kaan Demir" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="member-details">
+            <h3>Kaan Demir</h3>
+            <span class="member-title">Eğitim İçerikleri Yönetim Sorumlusu</span>
+            <p>
+              2019 senesinde Kabataş Erkek Lisesinden mezun olmuş, Bahçeşehir Üniversitesi Tıp Fakültesinde 6. sınıf öğrencisidir. 7 seneyi aşkın deneyimi ve eğitime olan bütüncül bakış açısı ile öğrenci ve velilere kişiye ve duruma özel destek vermektedir.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card-horizontal">
+          <div class="member-img">
+            <img src="{{ url_for('static', filename='images/emir.jpg') }}" alt="Emir Albudak" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="member-details">
+            <h3>Emir Albudak</h3>
+            <span class="member-title">Öğrenci Koçluğu ve Mentörlüğü Yönetim Sorumlusu</span>
+            <p>
+              2020 senesinde Kabataş Erkek Lisesinden mezun olmuş, Cerrahpaşa Üniversitesi Tıp Fakültesi 6. sınıf öğrencisidir. Onlarca lise ve ortaokul öğrencisi ile çalışmış, öğrenciye özgü programlama ve strateji oluşturma, doğru kariyer seçimi alanlarında destek vermektedir.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card-horizontal">
+          <div class="member-img">
+            <img src="{{ url_for('static', filename='images/murat.jpg') }}" alt="Murat Zülkif Mudu" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="member-details">
+            <h3>Murat Zülkif Mudu</h3>
+            <span class="member-title">Öğrenci Yaklaşımı Sorumlusu</span>
+            <p>
+              2019 senesinde Kabataş Erkek Lisesinden mezun olmuş, Bahçeşehir Üniversitesi Tıp Fakültesi 5. sınıf öğrencisidir. Ortaokul ve lise grupları ile 6 seneyi aşkın süredir edindiği tecrübe ile ihtiyacı olan öğrencilere ihtiyaçları doğrultusunda destek vermektedir.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card-horizontal">
+          <div class="member-img">
+            <img src="{{ url_for('static', filename='images/ece.jpg') }}" alt="Ece Doğukargın" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="member-details">
+            <h3>Ece Doğukargın</h3>
+            <span class="member-title">Yurt Dışı Eğitim Süreçleri Sorumlusu</span>
+            <p>
+              2019 senesinde Saint Joseph Lisesinden mezun olmuş, Bahçeşehir Üniversitesi Tıp Fakültesi 6. sınıf öğrencisidir. 7 yıldır lise gruplarına Türkçe ve Fransızca dillerinde okula/derslere oryantasyon alanlarında mentörlük ve destek vermektedir.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card-horizontal">
+          <div class="member-img">
+            <img src="{{ url_for('static', filename='images/muruvvet.jpg') }}" alt="Mürüvvet Demir" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="member-details">
+            <h3>Mürüvvet Demir</h3>
+            <span class="member-title">Psikoteknik Yaklaşım Uzmanı & Veli Mentörlüğü</span>
+            <p>
+              15 yılı aşkın süredir örgün eğitimdeki deneyimleri ile, ortaokul ve lise seviyesi öğrencilerinin merkezi sınavlara hazırlık süreçlerinde aile-öğrenci iletişimi, sınav sonrası yol haritası, tercih dönemi danışmanlığı ve yönetimi alanlarında destek vermektedir.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="section-content footer-container">
+      <div class="footer-col logo-col">
+        <a href="{{ url_for('home') }}" class="footer-logo">MEK</a>
+        <p>Eğitim ve danışmanlıkta güvenilir adresiniz.</p>
+        
+        <div class="social-links">
+          <a href="https://www.instagram.com/mekegitimdanismanlik/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@MekEgitim" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.linkedin.com/company/KULLANICI_ADINIZ" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          
+          <a href="https://twitter.com/KULLANICI_ADINIZ" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/KULLANICI_ADINIZ" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        </div>
+      
+      <div class="footer-col">
+        <h4>Hızlı Bağlantılar</h4>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Anasayfa</a></li>
+          <li><a href="{{ url_for('about') }}">Hakkımızda</a></li>
+          <li><a href="{{ url_for('services') }}">Hizmetler</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('home') }}#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col contact-info">
+        <h4>İletişim</h4>
+        <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+        <p><i class="fas fa-envelope"></i> info@mekegitimdanismanlik.com</p>
+        <p><i class="fas fa-phone"></i> +90 533 420 2195</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2024 MEK Eğitim Danışmanlık. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar Scroll
+    window.addEventListener("scroll", function() {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Mobil Menü
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburgerIcon = document.querySelector('.hamburger-menu i');
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+      } else {
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+      }
+    }
+  </script>
+
+</body>
+</html>

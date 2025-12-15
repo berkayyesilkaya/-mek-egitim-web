@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MEK | Eğitim Danışmanlığı</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <a href="{{ url_for('home') }}">MEK</a>
+      </div>
+
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#iletisim">İLETİŞİM</a>
+        <a href="{{ url_for('blog') }}">BLOG</a>
+        <a href="{{ url_for('services') }}">HİZMETLER</a>
+        <a href="{{ url_for('about') }}">HAKKIMIZDA</a>
+        <a href="{{ url_for('home') }}" class="active">ANASAYFA</a>
+      </nav>
+      
+      <div class="search-box">
+        <input type="text" placeholder="Ara...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+          <div class="flash-message flash-{{ category }}">
+            <span>{{ message }}</span>
+            <button onclick="this.parentElement.style.display='none'" class="flash-close">×</button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <section class="hero-section">
+    <div class="hero-overlay" id="heroOverlay"></div>
+    <div class="hero-content" id="heroContent">
+      <h1 class="hero-title animate-fade-in">MEK EĞİTİM DANIŞMANLIK</h1>
+      <p class="hero-subtitle animate-fade-in-delay">Öğrenciyi merkeze koyan yaklaşım, mükemmel sonuç.</p>
+      
+      <div class="hero-buttons animate-fade-in-delay-2">
+        <a href="#iletisim" class="hero-btn primary">İletişime Geç</a>
+        <a href="{{ url_for('services') }}" class="hero-btn secondary">Hizmetlerimiz</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" id="scrollIndicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-content">
+      <h2>HAKKIMIZDA</h2>
+      <a href="{{ url_for('about') }}" class="about-inner clickable-card">
+        <div class="about-image">
+          <img src="{{ url_for('static', filename='images/giris.jpg') }}" alt="Mek Eğitim Danışmanlık Ofisi" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+        </div>
+        <div class="about-text">
+          <p>
+            2019’dan bu yana eğitim alanında hizmet veren danışmanlık firmamız, öğrenci merkezli yaklaşımıyla öğrenme sürecine yenilikçi bir bakış kazandırıyor. Tecrübemizi ailemize katılan öğrencilerden ve ebeveynlerden aldığımız geri bildirimlerle birleştirerek, her öğrencinin motivasyonunu güçlendiren, ihtiyaçlarına uygun çalışma planları oluşturan ve sınav hazırlık yolculuğunda güçlü bir “aile” desteği sunan bir yapı kurduk.
+          </p>
+          <span class="read-more-btn">DEVAMINI OKU <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="section-content">
+      <h2>EKİBİMİZ</h2>
+
+      <a href="{{ url_for('about') }}" class="team-member left-align clickable-card">
+        <div class="team-photo" style="background-color: transparent;">
+          <img src="{{ url_for('static', filename='images/kaan.jpg') }}" alt="Kaan Demir" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; display: block;">
+        </div>
+        <div class="team-info">
+          <p>
+            <strong>Kaan Demir</strong>, 2019 senesinde Kabataş Erkek Lisesinden mezun olmuş, Bahçeşehir Üniversitesi Tıp Fakültesinde 6. sınıf öğrencisidir. 7 seneyi aşkın deneyimi ve eğitime olan bütüncül bakış açısı ile öğrenci ve velilere kişiye ve duruma özel destek vermektedir.
+          </p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('about') }}" class="team-member right-align clickable-card">
+        <div class="team-photo" style="background-color: transparent;">
+          <img src="{{ url_for('static', filename='images/murat.jpg') }}" alt="Murat Zülkif Mudu" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; display: block;">
+        </div>
+        <div class="team-info">
+          <p>
+            <strong>Murat Zülkif Mudu</strong>, 2019 senesinde Kabataş Erkek Lisesinden mezun olmuş, Bahçeşehir Üniversitesi Tıp Fakültesi 5. sınıf öğrencisidir. Ortaokul ve lise grupları ile 6 seneyi aşkın süredir edindiği tecrübe ile ihtiyacı olan öğrencilere ihtiyaçları doğrultusunda destek vermektedir.
+          </p>
+        </div>
+      </a>
+
+      <a href="{{ url_for('about') }}" class="read-more-btn">TÜM EKİBİ GÖR <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="section-content">
+      <a href="{{ url_for('services') }}" class="section-link">
+        <h2>HİZMETLERİMİZ VE İŞTİRAKLERİMİZ</h2>
+      </a>
+      <div class="services-grid">
+        <a href="{{ url_for('services') }}" class="service-card">
+          <div class="service-image">
+            <img src="{{ url_for('static', filename='images/online-kocluk.jpg') }}" alt="Online Koçluk" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+          </div>
+          <h3>ONLINE KOÇLUK</h3>
+          <p>Öğrencilerle birebir online görüşmelerle akademik takibini sağlıyor, hedeflerine ulaşması için rehberlik desteği sunuyoruz.</p>
+        </a>
+        <a href="{{ url_for('services') }}" class="service-card">
+          <div class="service-image">
+            <img src="{{ url_for('static', filename='images/seminer.jpg') }}" alt="YKS Semineri" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+          </div>
+          <h3>YKS SEMİNERİ</h3>
+          <p>Sınav sürecine dair motivasyon, zaman yönetimi ve sınav stratejileri üzerine özel bilgilendirme seminerleri.</p>
+        </a>
+        <a href="{{ url_for('services') }}" class="service-card">
+          <div class="service-image">
+            <img src="{{ url_for('static', filename='images/ozel-ders.jpg') }}" alt="Özel Dersler" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+          </div>
+          <h3>ÖZEL DERSLER</h3>
+          <p>Her öğrencinin farklı bir yolculuğu vardır. İhtiyaç analizine dayalı bireyselleşmiş özel dersler ile destek.</p>
+        </a>
+        <a href="{{ url_for('services') }}" class="service-card">
+          <div class="service-image">
+            <img src="{{ url_for('static', filename='images/youtube.jpg') }}" alt="Mek Youtube" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+          </div>
+          <h3>MEK YOUTUBE</h3>
+          <p>Eğitim içerikleri, seminer özetleri, rehberlik videolarını ve çeşitli içerikleri kanalımızdan takip edebilirsiniz.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sample-lessons">
+    <div class="section-content">
+      
+      <h2 style="margin-bottom: 30px;">ÖRNEK DERSLERİMİZ</h2>
+      <div class="video-carousel-wrapper" style="margin-bottom: 60px;">
+        <button class="carousel-btn left" onclick="scrollCarousel('carouselLessons', 'left')">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="video-carousel" id="carouselLessons">
+          
+          <div class="video-item" onclick="openVideo('{{ url_for('static', filename='videos/video2.mp4') }}', 'Matematik: Türev Giriş')">
+            <div class="video-thumbnail">
+                <i class="fas fa-play-circle" style="font-size: 50px; color: #001F3F; opacity: 0.8;"></i>
+            </div>
+            <p class="video-title">Matematik: Türev Giriş</p>
+          </div>
+
+          <div class="video-item" onclick="openVideo('{{ url_for('static', filename='videos/video4.mp4') }}', 'Rehberlik: Zaman Yönetimi')">
+            <div class="video-thumbnail">
+                <i class="fas fa-play-circle" style="font-size: 50px; color: #001F3F; opacity: 0.8;"></i>
+            </div>
+            <p class="video-title">Rehberlik: Zaman Yönetimi</p>
+          </div>
+
+          <div class="video-item" onclick="openVideo('{{ url_for('static', filename='videos/video5.mp4') }}', 'Fizik: Kuvvet ve Hareket')">
+            <div class="video-thumbnail">
+                <i class="fas fa-play-circle" style="font-size: 50px; color: #001F3F; opacity: 0.8;"></i>
+            </div>
+            <p class="video-title">Fizik: Kuvvet ve Hareket</p>
+          </div>
+          
+        </div>
+        
+        <button class="carousel-btn right" onclick="scrollCarousel('carouselLessons', 'right')">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+
+      <h2 style="margin-bottom: 30px;">ÖĞRENCİ GÖRÜŞLERİMİZ</h2>
+      <div class="video-carousel-wrapper">
+        <button class="carousel-btn left" onclick="scrollCarousel('carouselReviews', 'left')">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="video-carousel" id="carouselReviews">
+          
+          <div class="video-item" onclick="openVideo('{{ url_for('static', filename='videos/video-1.mp4') }}', 'Ada', true)">
+            <div class="video-thumbnail">
+                <img src="{{ url_for('static', filename='images/ogrenci-kapak.jpg') }}" alt="Öğrenci Görüşleri Kapak" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; z-index: 1;">
+                <i class="fas fa-play-circle" style="font-size: 50px; color: #fff; opacity: 0.9; position: relative; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,0.5);"></i>
+            </div>
+            <p class="video-title">Ada</p>
+          </div>
+          
+          <div class="video-item" onclick="openVideo('{{ url_for('static', filename='videos/video-2.mp4') }}', 'Berk', false)">
+            <div class="video-thumbnail">
+                <img src="{{ url_for('static', filename='images/ogrenci-kapak.jpg') }}" alt="Öğrenci Görüşleri Kapak" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7; z-index: 1;">
+                <i class="fas fa-play-circle" style="font-size: 50px; color: #fff; opacity: 0.9; position: relative; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,0.5);"></i>
+            </div>
+            <p class="video-title">Berk</p>
+          </div>
+
+        </div>
+        
+        <button class="carousel-btn right" onclick="scrollCarousel('carouselReviews', 'right')">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="testimonials-section" id="blog-preview">
+      <div class="section-content">
+          <h2>SON YAZILARIMIZ</h2>
+          <div class="testimonial-carousel-wrapper">
+            <button class="carousel-btn left" onclick="scrollCarousel('testimonialCarousel', 'left')"><i class="fas fa-chevron-left"></i></button>
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                
+                <a href="{{ url_for('blog') }}" class="testimonial-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                    <div class="quote-icon" style="opacity: 1; color: #001F3F; font-size: 24px; margin-bottom: 10px;">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h4 style="color: #001F3F; font-size: 18px; margin-bottom: 10px; font-weight: 700;">Gerçekçi Bir Başlangıç, Sağlam Bir Yol</h4>
+                    <p class="comment" style="font-style: normal; font-size: 14px; margin-bottom: 15px; min-height: auto;">
+                        Her başarı ve uzun soluklu yolculuk; sağlam bir zihin, yüksek bir irade ve ayakları yere basan bir plan gerektirir...
+                    </p>
+                    <div class="student-info" style="border-top: 1px solid #eee; padding-top: 10px; margin-top: auto;">
+                        <span style="font-size: 13px; color: #4da6ff; font-weight: 600;">Devamını Oku <i class="fas fa-arrow-right" style="font-size: 11px; margin-left: 3px;"></i></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('blog') }}" class="testimonial-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                    <div class="quote-icon" style="opacity: 1; color: #001F3F; font-size: 24px; margin-bottom: 10px;">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4 style="color: #001F3F; font-size: 18px; margin-bottom: 10px; font-weight: 700;">Motivasyon Üzerine Doğru Bir Bakış</h4>
+                    <p class="comment" style="font-style: normal; font-size: 14px; margin-bottom: 15px; min-height: auto;">
+                        Motivasyon, belki de son yıllarda en çok konuşulan, izlenen ve üzerine en fazla fikir üretilen kavramlardan biridir...
+                    </p>
+                    <div class="student-info" style="border-top: 1px solid #eee; padding-top: 10px; margin-top: auto;">
+                        <span style="font-size: 13px; color: #4da6ff; font-weight: 600;">Devamını Oku <i class="fas fa-arrow-right" style="font-size: 11px; margin-left: 3px;"></i></span>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('blog') }}" class="testimonial-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                    <div class="quote-icon" style="opacity: 1; color: #001F3F; font-size: 24px; margin-bottom: 10px;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 style="color: #001F3F; font-size: 18px; margin-bottom: 10px; font-weight: 700;">Pomodoro Tekniği ile Zaman Yönetimi</h4>
+                    <p class="comment" style="font-style: normal; font-size: 14px; margin-bottom: 15px; min-height: auto;">
+                        Daha az zamanda daha verimli çalışmak mümkün mü? Pomodoro tekniğinin incelikleri çok yakında burada olacak.
+                    </p>
+                    <div class="student-info" style="border-top: 1px solid #eee; padding-top: 10px; margin-top: auto;">
+                        <span style="font-size: 13px; color: #4da6ff; font-weight: 600;">Devamını Oku <i class="fas fa-arrow-right" style="font-size: 11px; margin-left: 3px;"></i></span>
+                    </div>
+                </a>
+
+            </div>
+            <button class="carousel-btn right" onclick="scrollCarousel('testimonialCarousel', 'right')"><i class="fas fa-chevron-right"></i></button>
+          </div>
+      </div>
+  </section>
+
+  <section class="contact-section" id="iletisim">
+    <div class="section-content">
+      <h2>BİZE ULAŞIN</h2>
+      <div class="contact-container">
+        <form class="contact-form" action="{{ url_for('send_contact') }}" method="POST">
+          <div class="form-group">
+            <label>Adınız Soyadınız</label>
+            <input type="text" name="name" placeholder="Adınız..." required>
+          </div>
+          <div class="form-group">
+            <label>E-posta Adresiniz</label>
+            <input type="email" name="email" placeholder="ornek@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Mesajınız</label>
+            <textarea name="message" rows="5" placeholder="Size nasıl yardımcı olabiliriz?" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">GÖNDER</button>
+        </form>
+        <div class="contact-info-box">
+          <h3>İletişim Bilgileri</h3>
+          <p>Sorularınız için bizimle iletişime geçmekten çekinmeyin.</p>
+          <div class="info-item"><i class="fas fa-phone"></i><span>+90 533 420 2195</span></div>
+          <div class="info-item"><i class="fas fa-envelope"></i><span>info@mekegitimdanismanlik.com</span></div>
+          <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>İstanbul</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+    <div class="section-content footer-container">
+      <div class="footer-col logo-col">
+        <a href="{{ url_for('home') }}" class="footer-logo">MEK</a>
+        <p>Eğitim ve danışmanlıkta güvenilir adresiniz.</p>
+        
+        <div class="social-links">
+          <a href="https://www.instagram.com/mekegitimdanismanlik/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@MekEgitim" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.linkedin.com/company/KULLANICI_ADINIZ" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          
+          <a href="https://twitter.com/KULLANICI_ADINIZ" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/KULLANICI_ADINIZ" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        </div>
+      
+      <div class="footer-col">
+        <h4>Hızlı Bağlantılar</h4>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Anasayfa</a></li>
+          <li><a href="{{ url_for('about') }}">Hakkımızda</a></li>
+          <li><a href="{{ url_for('services') }}">Hizmetler</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('home') }}#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col contact-info">
+        <h4>İletişim</h4>
+        <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+        <p><i class="fas fa-envelope"></i> info@mekegitimdanismanlik.com</p>
+        <p><i class="fas fa-phone"></i> +90 533 420 2195</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2024 MEK Eğitim Danışmanlık. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <div id="videoModal" class="video-modal" style="display: none;">
+    <div class="video-modal-content" id="videoModalContent">
+      <span class="close-btn" onclick="closeVideo()">×</span>
+      <h3 id="videoTitle">Video Başlığı</h3>
+      <video id="videoPlayer" controls>
+        <source id="videoSource" src="" type="video/mp4">
+        Tarayıcınız video öğesini desteklemiyor.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // 1. SCROLL EFECTLERİ
+    window.addEventListener("scroll", function() {
+      const scrollPos = window.scrollY;
+      const navbar = document.querySelector(".navbar");
+      
+      if (scrollPos > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+      const heroContent = document.getElementById("heroContent");
+      const heroOverlay = document.getElementById("heroOverlay");
+      const scrollIndicator = document.getElementById("scrollIndicator");
+
+      if (heroContent && heroOverlay) {
+        let opacityText = 1 - (scrollPos / 500);
+        if (opacityText < 0) opacityText = 0;
+        
+        let opacityOverlay = 0.5 - (scrollPos / 500);
+        if (opacityOverlay < 0) opacityOverlay = 0;
+
+        heroContent.style.opacity = opacityText;
+        heroOverlay.style.opacity = opacityOverlay;
+        
+        if (scrollPos > 100) {
+            scrollIndicator.style.opacity = 0;
+        } else {
+            scrollIndicator.style.opacity = 0.8;
+        }
+      }
+    });
+
+    // 2. Carousel Fonksiyonu (GENEL)
+    function scrollCarousel(containerId, direction) {
+      const container = document.getElementById(containerId);
+      const scrollAmount = 300; 
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    // 3. Mobil Menü
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburgerIcon = document.querySelector('.hamburger-menu i');
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+      } else {
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+      }
+    }
+
+    // 4. Video Modal Fonksiyonları
+    // isVertical: true ise videoyu dikey modda açar
+    function openVideo(src, title, isVertical = false) {
+      const modal = document.getElementById("videoModal");
+      const modalContent = document.getElementById("videoModalContent");
+      const video = document.getElementById("videoPlayer");
+      const source = document.getElementById("videoSource");
+      const videoTitle = document.getElementById("videoTitle");
+
+      // Dikey video sınıfını ayarla
+      if (isVertical) {
+        modalContent.classList.add('vertical-view');
+      } else {
+        modalContent.classList.remove('vertical-view');
+      }
+
+      source.src = src;
+      video.load();
+      videoTitle.textContent = title;
+      
+      modal.style.display = "flex";
+      video.play();
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("videoPlayer");
+      video.pause();
+      modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+      const vModal = document.getElementById("videoModal");
+      if (event.target == vModal) {
+        closeVideo();
+      }
+    }
+  </script>
+
+</body>
+</html>

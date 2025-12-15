@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hizmetlerimiz | MEK Eğitim Danışmanlık</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <a href="{{ url_for('home') }}">MEK</a>
+      </div>
+
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}#iletisim">İLETİŞİM</a>
+        <a href="{{ url_for('blog') }}">BLOG</a>
+        <a href="{{ url_for('services') }}" class="active">HİZMETLER</a>
+        <a href="{{ url_for('about') }}">HAKKIMIZDA</a>
+        <a href="{{ url_for('home') }}">ANASAYFA</a>
+      </nav>
+      
+      <div class="search-box">
+        <input type="text" placeholder="Ara...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="section-content">
+      <h1>HİZMETLERİMİZ VE İŞTİRAKLERİMİZ</h1>
+      <p>Öğrenci merkezli yaklaşımımızla başarıya giden yolda sunduğumuz profesyonel çözümler.</p>
+    </div>
+  </section>
+
+  <section class="services-detail-section">
+    <div class="section-content">
+      
+      <div class="service-row" id="online-kocluk">
+        <div class="service-text">
+          <h3>ONLINE KOÇLUK</h3>
+          
+          <div class="short-description">
+            <p>
+              Sınav hazırlığı, uzun soluklu ve çok bileşenli bir süreçtir. Bu süreçte öğrenciler farklı kaynaklardan gelen tavsiyeler arasında kararsız kalabilmektedir. Koçluk, tüm bu dağınık bilgileri bir araya getirerek öğrenciye uygun, bütünleşik ve sürdürülebilir bir yol oluşturmayı amaçlayan kritik bir destektir.
+            </p>
+          </div>
+
+          <div class="full-content-hidden">
+            
+            <p><i class="fas fa-info-circle" style="color:#4da6ff; margin-right:5px;"></i> <strong>Sınav hazırlığı</strong>, uzun soluklu ve çok bileşenli bir süreçtir. Bu süreçte öğrenciler farklı kaynaklardan gelen tavsiyeler, farklı çalışma programları ve çeşitli yönlendirmeler arasında çoğu zaman kararsız kalabilmektedir. İşte <em>Koçluk</em>, tüm bu dağınık bilgileri bir araya getirerek öğrenciye uygun, bütünleşik ve sürdürülebilir bir yol oluşturmayı amaçlayan kritik bir destektir.</p>
+            
+            <p><i class="fas fa-user-graduate" style="color:#4da6ff; margin-right:5px;"></i> <strong>Mek Eğitim Danışmanlık</strong> olarak öğrencilerimizin:</p>
+            <ul class="service-features-list">
+                <li><i class="fas fa-bullseye"></i> Neye odaklanması gerektiğini,</li>
+                <li><i class="fas fa-exclamation-circle"></i> Hangi uyarılara nasıl reaksiyon vermesi gerektiğini,</li>
+                <li><i class="fas fa-tasks"></i> Kendisine en uygun çalışma programını nasıl uygulayacağını</li>
+            </ul>
+            <p>kişiye özel tasarlanmış planlar ve profesyonel yaklaşımlarla sunuyoruz.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h4><i class="fas fa-fingerprint"></i> Her Öğrenci Özeldir</h4>
+            <p>Her öğrencinin yıllar içinde geliştirdiği bilgi birikimi, öğrenme şekli ve motivasyon kaynakları farklıdır. Bu nedenle <em>tek tip, basmakalıp programlar</em> öğrenciler için yeterli değildir. Sınav süreci dinamik, sürekli takip gerektiren ve doğru yönetildiğinde başarılı sonuçlar veren bir süreçtir.</p>
+            
+            <p>Öğrencilerin ideal olarak kendi öğrenme sürecini yönetebilmesi hedeflense de;</p>
+            <ul class="service-features-list">
+                <li><i class="fas fa-times-circle"></i> Lise döneminde sınav sistemine adaptasyon güçlüğü,</li>
+                <li><i class="fas fa-times-circle"></i> Çalışma alışkanlığının henüz kazanılmamış veya kaybedilmiş olması,</li>
+                <li><i class="fas fa-times-circle"></i> Kaynak fazlalığı nedeniyle yön bulma zorluğu</li>
+            </ul>
+            <p>Öğrencileri çoğu zaman yönetici değil, sadece tavsiyeleri uygulayan bir pozisyona getirmektedir. <strong>Mek Eğitim Danışmanlık</strong> tam da bu noktada devreye girerek süreci profesyonelce yönetir, öğrenciyi giderek daha bağımsız hâle getirir.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3 style="color:#001F3F; margin-top:20px;">Mek Eğitim Danışmanlık Koçluk Hizmetleri</h3>
+
+            <div style="background:#f9f9f9; padding:20px; border-radius:8px; margin-bottom:20px; border-left: 4px solid #4da6ff;">
+                <h4 style="color:#4da6ff; margin-bottom:5px;">1. Başlangıç Mentorlük Paketi</h4>
+                <p style="font-size:14px; color:#666; margin-bottom:15px;"><em>(Yeni başlayacak veya uzun yola yeni çıkacak öğrenciler için)</em></p>
+                <p>Bu paket, öğrencinin hem sınav sistemini tanımasını hem de kendi çalışma düzenini inşa edebilmesini sağlayan <strong>10 oturumdan</strong> oluşur.</p>
+                
+                <strong style="display:block; margin-top:15px; margin-bottom:10px;">Seans İçerikleri:</strong>
+                <ul class="service-features-list" style="margin-top:0;">
+                    <li><strong>1. Seans:</strong> Sınav entegrasyonu ve sistem hakkında bilgilendirme</li>
+                    <li><strong>2. Seans:</strong> Motivasyon kaynaklarının belirlenmesi ve hedef oluşturma</li>
+                    <li><strong>3. Seans:</strong> Ders çalışma teknikleri ve sürdürülebilir çalışma alışkanlıkları</li>
+                    <li><strong>4. Seans:</strong> Öğrenilen konuların pekiştirilmesi için yapılacak çalışmalar</li>
+                    <li><strong>5. Seans:</strong> Hiç bilinmeyen bir konuya nasıl yaklaşılması gerektiği</li>
+                    <li><strong>6. Seans:</strong> Bilgileri bütünleştirme ve sorulara yansıtma becerisi</li>
+                    <li><strong>7. Seans:</strong> Sürdürülebilirlik ve program hazırlama teknikleri</li>
+                    <li><strong>8. Seans:</strong> Eksiklerin belirlenmesi ve kişisel program oluşturmaya geçiş</li>
+                    <li><strong>9. Seans:</strong> Yapılan çalışmaların YKS özelinde net artışına katkısı ve spesifik öneriler</li>
+                    <li><strong>10. Seans:</strong> Sınav öncesi ve sınav esnası stres yönetimi</li>
+                </ul>
+                <p style="margin-top:15px; font-size:14px; color:#555; font-style:italic;"><strong>Hedef:</strong> Öğrenciyi dışa bağımlı olmadan çalışabilen, ihtiyaçlarını doğru analiz edebilen bir seviyeye getirmektir.</p>
+            </div>
+
+            <div style="background:#f9f9f9; padding:20px; border-radius:8px; border-left: 4px solid #001F3F;">
+                <h4 style="color:#001F3F; margin-bottom:5px;">2. İdame Mentörlük Paketi</h4>
+                <p style="font-size:14px; color:#666; margin-bottom:15px;"><em>(Süreç takibi ve düşük yoğunlukta destek isteyen öğrenciler için)</em></p>
+                <p>Üniversite sınavına hazırlık, dönem boyunca motivasyonun korunmasını zorunlu kılan karmaşık bir süreçtir. Başlangıç paketini tamamlayan veya doğrudan süreç takibine ihtiyaç duyan öğrencilere özeldir.</p>
+                
+                <ul class="service-features-list">
+                    <li><i class="fas fa-check"></i> Daha düşük sıklıkta görüşmelerden oluşur</li>
+                    <li><i class="fas fa-check"></i> Öğrencinin ilerleyişini düzenli olarak takip eder</li>
+                    <li><i class="fas fa-check"></i> Çalışma düzenindeki aksamaları hızlıca tespit eder</li>
+                    <li><i class="fas fa-check"></i> Sürdürülebilir performans ve gelişim sağlar</li>
+                </ul>
+            </div>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h4><i class="fas fa-flag-checkered"></i> Sonuç Olarak</h4>
+            <p>Mek Eğitim Danışmanlık Koçluk Programları, öğrencilerin ihtiyaç duyduğu rehberliği sağlar; ancak nihai hedefimiz onları <em>kendi sürecini yönetebilen, neye ihtiyacı olduğunu bilen, bağımsız ve güçlü bir öğrenci</em> hâline getirmektir.</p>
+          </div>
+
+          <button class="read-more-btn-service" onclick="openServiceModal(this)">TAMAMINI OKU</button>
+        </div>
+
+        <div class="service-img-wrapper">
+          <div class="service-img-placeholder">
+            <img src="{{ url_for('static', filename='images/online-kocluk.jpg') }}" alt="Online Koçluk">
+          </div>
+        </div>
+      </div>
+
+      <div class="service-row reverse" id="yks-semineri">
+        <div class="service-text">
+          <h3>YKS SEMİNERİ</h3>
+          
+          <div class="short-description">
+            <p>
+              Ders çalışma ve sınavlara hazırlık, öğrencinin merkezde olduğu bir süreçtir. YKS seminerlerimizde, eğitim sistemini ve kaynakları kendi ihtiyaçlarınıza göre nasıl düzenleyebileceğinizi ve çalışma süreçlerinizi nasıl daha verimli hale getirebileceğinizi kapsamlı biçimde ele alıyoruz.
+            </p>
+          </div>
+
+          <div class="full-content-hidden">
+            <p><i class="fas fa-info-circle" style="color:#4da6ff; margin-right:5px;"></i> <strong>Ders çalışma ve sınavlara hazırlık</strong>, temelde <em>öğrencinin merkezde olduğu</em> ve öğrenme sorumluluğunu adım adım üstlendiği süreçlerdir. Okul ve okul dışı öğrenme araçları ise bu yolculukta yalnızca yönlendirme ve destek görevi üstlenir.</p>
+
+            <p>Öğrencinin kendi sürecini yönetemediği bir durumda, hazırlık dönemi adeta dört ayağından ikisi eksik bir masaya benzetilebilir. Bu nedenle <strong>Mek Eğitim Danışmanlık</strong> olarak, öğrencilerimizin kaynakları <em>kendi ihtiyaçlarına göre nasıl düzenleyebileceklerini</em> ve çalışma süreçlerini nasıl <strong>daha verimli hale getirebileceklerini</strong> seminerlerimizde ele alıyoruz.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3 style="color:#001F3F; margin-top:20px;">YKS Çalıştay Programı</h3>
+            <p>Toplam <strong>10 saatten oluşan</strong> (iki gün, beşer saatlik) çalıştaylarımız, öğrencilerin ihtiyaç duyduğu tüm temel alanlara bütüncül bir bakış sunar:</p>
+
+            <div style="background:#f9f9f9; padding:20px; border-radius:8px; margin-bottom:20px; border-left: 4px solid #4da6ff;">
+                <h4 style="color:#4da6ff; margin-bottom:10px;">Çalıştay İçeriği</h4>
+                <ul class="service-features-list" style="margin-top:0;">
+                    <li><i class="fas fa-check"></i> Doğru ders çalışma motivasyonunun kazanılması ve sürdürülebilmesi</li>
+                    <li><i class="fas fa-check"></i> Ders çalışma alışkanlıklarının adım adım inşa edilmesi</li>
+                    <li><i class="fas fa-check"></i> TYT ve AYT sınavlarının yapısının detaylı analizi</li>
+                    <li><i class="fas fa-check"></i> Her ders özelinde <em>konu bazlı çalışma yöntemleri</em></li>
+                    <li><i class="fas fa-check"></i> Sınav kazanımlarının doğru belirlenmesi ve önceliklendirilmesi</li>
+                    <li><i class="fas fa-check"></i> Kazanımların yıl boyunca <em>etkili tekrar ve pekiştirme teknikleriyle</em> bütünleştirilmesi</li>
+                </ul>
+            </div>
+
+            <p>Bu çalıştayın temel amacı; öğrencilerimize yalnızca konu anlatımı sağlamak değil; <em>nasıl çalışılacağını, hangi yöntemin neden işe yaradığını</em> ve <em>sürecin nasıl yönetileceğini</em> öğretmektir.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <div style="background:#f0f4ff; padding:20px; border-radius:8px; margin-bottom:20px;">
+                <h4 style="color:#001F3F;"><i class="fas fa-users" style="margin-right:8px;"></i> Velilere Yönelik Rehberlik</h4>
+                <p>Seminerlerimiz, sürece aktif olarak dahil olmak isteyen veliler için de güçlü bir rehber niteliğindedir. Velilerin yıl boyunca öğrencilerini daha bilinçli şekilde takip edebilmesi ve destek verebilmesi için gerekli <em>uyum ve yönlendirme becerilerini</em> kazandırmayı hedefler.</p>
+            </div>
+
+            <h4><i class="fas fa-question-circle"></i> Kimler İçin Uygundur?</h4>
+            <p>Bu program:</p>
+            <ul class="service-features-list">
+                <li><i class="fas fa-angle-right"></i> Nerden başlayacağını bilemeyen,</li>
+                <li><i class="fas fa-angle-right"></i> Tüm çabasına rağmen netlerini yükseltmekte zorlanan,</li>
+                <li><i class="fas fa-angle-right"></i> Çalışma sürecinin daha verimli yönetilebileceğini düşünen,</li>
+                <li><i class="fas fa-angle-right"></i> Sınav hazırlığında yol haritası arayan tüm öğrenciler için idealdir.</li>
+            </ul>
+            <p style="margin-top:10px;">Aynı zamanda öğrencilerinin yanında durmak, süreci doğru şekilde desteklemek isteyen tüm veliler için de değerli bir kılavuzdur.</p>
+          </div>
+
+          <button class="read-more-btn-service" onclick="openServiceModal(this)">TAMAMINI OKU</button>
+        </div>
+
+        <div class="service-img-wrapper">
+          <div class="service-img-placeholder">
+            <img src="{{ url_for('static', filename='images/seminer.jpg') }}" alt="YKS Semineri">
+          </div>
+        </div>
+      </div>
+
+      <div class="service-row" id="ozel-dersler">
+        <div class="service-text">
+          <h3>ÖZEL DERSLER</h3>
+          
+          <div class="short-description">
+            <p>
+              Özel ders, öğrenciye birebir geri bildirim sağlanabilmesi ve ders içeriğinin tamamen öğrenciye özel tasarlanması sayesinde büyük avantaj sağlar. Mek Eğitim Danışmanlık olarak, yalnızca konu anlatımı değil, öğrencinin çalışma verimini artıran bütüncül bir yaklaşım sunuyoruz.
+            </p>
+          </div>
+
+          <div class="full-content-hidden">
+            <p><i class="fas fa-chalkboard-teacher" style="color:#4da6ff; margin-right:5px;"></i> <strong>Özel ders</strong>, diğer eğitim bileşenlerinin yanı sıra öğrenciye birebir geri bildirim sağlanabilmesi ve ders içeriğinin tamamen öğrenciye özel olarak tasarlanması sayesinde önemli bir avantaj sunar. Öğrencinin seviyesine göre planlanan, uzmanlıkla oluşturulmuş uzun vadeli bir yol haritasının parçası olan özel dersler, öğrencilerimize ciddi kazanımlar kazandırmaktadır.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h4><i class="fas fa-fingerprint"></i> Kişiye Özgü Yaklaşım</h4>
+            <p>Mek Eğitim Danışmanlık olarak, aynı konuya ait ardışık iki dersin bile içeriği birbirinin aynısı değildir; çünkü <em>her takip süreci tamamen kişiye özgüdür.</em> Süreç yalnızca konu anlatımı veya soru çözümünden ibaret değildir. Öğrencimizin oturduğu sıralarda daha önce oturmuş ve hedeflerine ulaşmış bireylerin motivasyonundan, konuyu bir görev gibi görmek yerine gerektiğinde en ince ayrıntısına kadar açıklayarak maksimum kazanım sağlamaya kadar geniş bir eğitim yaklaşımını kapsar.</p>
+
+            <div style="background:#f9f9f9; padding:20px; border-radius:8px; margin:20px 0; border-left: 4px solid #4da6ff;">
+                <h4 style="color:#001F3F; margin-bottom:10px;"><i class="fas fa-users"></i> Güçlü Bir Ekip Bağı</h4>
+                <p>Mek Eğitim Danışmanlık bünyesinde yalnızca öğrenci–öğretmen ilişkisine dayalı bir yapı değil, <strong>ortak hedef için birlikte çalışan güçlü bir ekip bağı</strong> kurulur.</p>
+                <p style="margin-top:10px;">Tüm derslerde temel amaç, öğrencimizin tıkandığı noktaları çözerek kendi çalışma sürelerini daha verimli hale getirmektir. Bu sayede normalde daha uzun ders saatleri gerektirecek konular, daha kısa ve odaklı derslerde başarıyla tamamlanabilir.</p>
+            </div>
+
+            <h4><i class="fas fa-balance-scale"></i> Temel Felsefemiz</h4>
+            <p>Bu yaklaşım doğrultusunda temel bakış açımız şudur:</p>
+            <p style="font-size:18px; color:#4da6ff; font-weight:600; text-align:center; margin:15px 0;">
+                "Ne kadar az özel ders programlanması gerekiyorsa, yol o kadar sağlıklı ilerliyor demektir."
+            </p>
+            <p>Süreç boyunca velilerimize düzenli geri bildirimler sunarak hem kaygılarını azaltmayı hem de onları bu gelişim yolculuğunun aktif bir parçası haline getirmeyi hedefliyoruz.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <p style="font-style:italic;"><i class="fas fa-quote-left" style="color:#ccc; margin-right:10px;"></i> Kısacası mottomuz; <strong>derse istekli, motive ve çözüm odaklı iki kişiyi bir araya getirmek</strong> ve bu güçlü iş birliği ile öğrencimizin en sağlıklı şekilde ilerlemesini sağlamaktır.</p>
+          </div>
+
+          <button class="read-more-btn-service" onclick="openServiceModal(this)">TAMAMINI OKU</button>
+        </div>
+
+        <div class="service-img-wrapper">
+          <div class="service-img-placeholder">
+            <img src="{{ url_for('static', filename='images/ozel-ders.jpg') }}" alt="Özel Dersler">
+          </div>
+        </div>
+      </div>
+
+      <div class="service-row reverse" id="kamu-youtube">
+        <div class="service-text">
+          <h3>MEK YOUTUBE KANALIMIZ</h3>
+          
+          <div class="short-description">
+            <p>
+              Günümüzün dijital çağında eğitim, teknoloji ile birlikte çok daha erişilebilir bir hâle gelmiştir. Kanalımızda, yılların tecrübesinden süzülmüş, kalıcı ve maksimum fayda sağlayan içeriklerle öğrencinin 7/24 yanındayız.
+            </p>
+          </div>
+
+          <div class="full-content-hidden">
+            <p><em>Günümüzün dijital çağında eğitim, teknoloji ile birlikte çok daha erişilebilir bir hâle gelmiştir.</em> Öğrenciler, sosyal medya platformlarındaki geniş kapsamlı konu anlatım videolarından, soru bankalarının video çözümlerinden ve hızla yaygınlaşan online özel ders imkanlarından yararlanarak kendi zaman programlarına uygun biçimde çalışma fırsatı bulmaktadır. Böylece hem bilgi kaynaklarına erişim kolaylaşmakta hem de öğrenme süreçleri daha esnek ve verimli hâle gelmektedir.</p>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h4><i class="fas fa-universal-access"></i> Erişilebilir Eğitim</h4>
+            <p>Buna karşın, geleneksel özel ders anlayışı yalnızca belirli çevrelere ulaşabilmekte ve ülkemizin önemli bir kısmında bu hizmete erişim sınırlı kalmaktadır. <strong>Mek Eğitim Danışmanlık olarak amacımız</strong>, öğrencinin 7/24 yanında olabilmek ve bu erişim eşitsizliğini en aza indirmektir.</p>
+
+            <div style="background:#f9f9f9; padding:20px; border-radius:8px; margin:20px 0; border-left: 4px solid #cc0000;">
+                <h4 style="color:#cc0000; margin-bottom:10px;"><i class="fab fa-youtube"></i> YouTube İçeriklerimiz</h4>
+                <p>Bu doğrultuda YouTube platformu üzerinden şunları sunmaktayız:</p>
+                <ul class="service-features-list">
+                    <li><i class="fas fa-play-circle"></i> Kapsamlı ders anlatımları</li>
+                    <li><i class="fas fa-user-friends"></i> Online koçluk görüşmeleri</li>
+                    <li><i class="fas fa-project-diagram"></i> Farklı konu başlıklarını birbirine bağlayan açıklayıcı bağlantı videoları</li>
+                    <li><i class="fas fa-pen-alt"></i> Soru çözümleri</li>
+                    <li><i class="fas fa-brain"></i> Ders çalışma teknikleri</li>
+                    <li><i class="fas fa-fire"></i> Motivasyon içerikleri</li>
+                    <li><i class="fas fa-calendar-alt"></i> Çalışma programı oluşturma rehberlikleri</li>
+                </ul>
+            </div>
+
+            <p>Kanalımızın içeriği, giderek daha fazla öğrenciye ulaşmayı hedefleyen; yılların tecrübe ve gözlemlerinden süzülmüş, <em>kalıcı, tekrar kullanılabilir ve maksimum fayda sağlayan</em> bir bakış açısı ile oluşturulmaktadır. Amacımız, öğrencilerimizin akademik yolculuklarında güvenilir bir rehber olmak ve her seviyeden öğrenci ile velinin ihtiyaç duyduğu desteği sürekli bir biçimde sunmaktır.</p>
+          </div>
+
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px;">
+              <button class="read-more-btn-service" onclick="openServiceModal(this)">TAMAMINI OKU</button>
+              
+              <a href="https://www.youtube.com/@MekEgitim" target="_blank" class="read-more-btn-service youtube-btn" style="text-decoration:none; margin-top:0;">
+                  KANALA GİT <i class="fab fa-youtube" style="margin-left:8px;"></i>
+              </a>
+          </div>
+
+        </div>
+
+        <div class="service-img-wrapper">
+          <div class="service-img-placeholder">
+            <img src="{{ url_for('static', filename='images/youtube.jpg') }}" alt="Mek Youtube">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="section-content">
+      <h2>Geleceğinizi Birlikte Planlayalım</h2>
+      <p>Hangi hizmetin sizin için uygun olduğuna karar veremediniz mi? Ücretsiz ön görüşme için bize ulaşın.</p>
+      <a href="{{ url_for('home') }}#iletisim" class="cta-btn">İLETİŞİME GEÇİN</a>
+    </div>
+  </section>
+
+<footer class="footer">
+    <div class="section-content footer-container">
+      <div class="footer-col logo-col">
+        <a href="{{ url_for('home') }}" class="footer-logo">MEK</a>
+        <p>Eğitim ve danışmanlıkta güvenilir adresiniz.</p>
+        
+        <div class="social-links">
+          <a href="https://www.instagram.com/mekegitimdanismanlik/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@MekEgitim" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.linkedin.com/company/KULLANICI_ADINIZ" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          
+          <a href="https://twitter.com/KULLANICI_ADINIZ" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/KULLANICI_ADINIZ" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        </div>
+      
+      <div class="footer-col">
+        <h4>Hızlı Bağlantılar</h4>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Anasayfa</a></li>
+          <li><a href="{{ url_for('about') }}">Hakkımızda</a></li>
+          <li><a href="{{ url_for('services') }}">Hizmetler</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('home') }}#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col contact-info">
+        <h4>İletişim</h4>
+        <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+        <p><i class="fas fa-envelope"></i> info@mekegitimdanismanlik.com</p>
+        <p><i class="fas fa-phone"></i> +90 533 420 2195</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2024 MEK Eğitim Danışmanlık. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <div id="serviceModal" class="service-modal">
+    <div class="service-modal-content">
+      <span class="service-close-btn" onclick="closeServiceModal()">&times;</span>
+      <h3 id="modalTitle">Hizmet Başlığı</h3>
+      <div id="modalBody" class="modal-body-text">
+        </div>
+    </div>
+  </div>
+
+  <script>
+    // Navbar Scroll
+    window.addEventListener("scroll", function() {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Mobil Menü
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburgerIcon = document.querySelector('.hamburger-menu i');
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+      } else {
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+      }
+    }
+
+    // --- HİZMET MODAL FONKSİYONLARI ---
+    function openServiceModal(button) {
+        const parent = button.closest('.service-text');
+        const title = parent.querySelector('h3').innerText;
+        const fullContent = parent.querySelector('.full-content-hidden').innerHTML;
+        
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBody').innerHTML = fullContent;
+        
+        const modal = document.getElementById('serviceModal');
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeServiceModal() {
+        const modal = document.getElementById('serviceModal');
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('serviceModal');
+        if (event.target == modal) {
+            closeServiceModal();
+        }
+    }
+  </script>
+
+</body>
+</html>

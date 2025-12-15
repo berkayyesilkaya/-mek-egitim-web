@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | MEK Eğitim Danışmanlığı</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <a href="{{ url_for('home') }}">MEK</a>
+      </div>
+
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}#iletisim">İLETİŞİM</a>
+        <a href="{{ url_for('blog') }}" class="active">BLOG</a>
+        <a href="{{ url_for('services') }}">HİZMETLER</a>
+        <a href="{{ url_for('about') }}">HAKKIMIZDA</a>
+        <a href="{{ url_for('home') }}">ANASAYFA</a>
+      </nav>
+      
+      <div class="search-box">
+        <input type="text" placeholder="Ara...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="section-content">
+      <h1>MEK BLOG</h1>
+      <p>Eğitim, kariyer ve kişisel gelişim üzerine güncel yazılarımızı ve rehber içeriklerimizi buradan takip edebilirsiniz.</p>
+    </div>
+  </section>
+
+  <section class="blog-list-section">
+    <div class="section-content">
+      <div class="blog-grid">
+        
+        <div class="blog-post-card clickable-card" onclick="openBlogModal(this)">
+          <div class="post-image-wrapper">
+            <img src="{{ url_for('static', filename='images/blog-kapak.jpg') }}" alt="Blog Kapak" class="blog-cover-image">
+          </div>
+          <div class="post-content">
+            <span class="post-category">REHBERLİK VE MOTİVASYON</span>
+            <h2 class="post-title">Gerçekçi Bir Başlangıç, Sağlam Bir Yol</h2>
+            <p class="post-excerpt">
+              Her başarı ve uzun soluklu yolculuk; sağlam bir zihin, yüksek bir irade ve ayakları yere basan bir plan gerektirir. Ancak bu üçlünün hayata geçirilebilmesi için belki de en temel şart...
+            </p>
+            
+            <div class="blog-full-content" style="display:none;">
+                <p>Her başarı ve uzun soluklu yolculuk; sağlam bir zihin, yüksek bir irade ve ayakları yere basan bir plan gerektirir. Ancak bu üçlünün hayata geçirilebilmesi için belki de en temel şart, insanın kendinin farkında olmasıdır.</p>
+                
+                <p>İnsan çoğu zaman hangi yola neden çıktığını, bu yolda kendisini nelerin beklediğini ve karşılaşacağı engelleri aşmak için neye başvuracağını bilir. Sorun, bu bilgilerin eksikliğinden ziyade; üzerine gidip çözme aşamasına gelmek için gereken enerjiyi ve kararlılığı kendinde bulamamaktır. Bu durum zamanla motivasyon kaybına ve kişinin kendisinden kaçtığı bir tutuma dönüşebilir.</p>
+                
+                <p>Oysa kaçmak, problemleri ortadan kaldırmaz; yalnızca çözümden uzaklaştırır. Bir noktadan sonra kişi, kendini kandırmaktan yorulur ve kendisiyle olan samimiyetini yavaş yavaş kaybeder. Atılmayan her adım, bir sonraki adımı daha da zorlaştırır. Buna karşılık atılan her küçük adım, yalnızca çözüme yaklaşmayı değil; insanın kendi özüne ve emeğine duyduğu saygıyı da artırır. Bu saygı, sürecin ilerleyişini daha dengeli ve pozitif bir hale getirir.</p>
+                
+                <h3>Sınav Süreci ve Başlangıçlar</h3>
+                <p>Üniversite sınavı süreci de bu açıdan diğer tüm başlangıçlarla benzerlik gösterir: <strong>Başlangıç zordur.</strong> Daha yolun başında bile toplumun, çevrenin ve ailenin beklentileri öğrencinin omuzlarında ağır bir yük oluşturur. Yetersizlik hissi ve eksik olma kaygısı bu yükle birleştiğinde, öğrencinin dersle arasına mesafe koyması kaçınılmaz hale gelebilir.</p>
+                
+                <p>Ancak unutulmaması gereken önemli bir gerçek vardır:</p>
+                <blockquote style="border-left: 4px solid #b30000; padding-left: 15px; font-style: italic; color: #555; margin: 20px 0;">
+                    Bu yolculukta verilen tüm emek, başkasını değil, öğrencinin kendisini ileri taşır.
+                </blockquote>
+                
+                <p>Her aşılan yetersizlik hissi, özgüveni bir adım yukarı taşır ve bir sonraki problem karşısında çözüm becerisini güçlendirir. Zamanla sorunlar korkulacak ya da altında ezilecek engeller olmaktan çıkar; tanıdık ve yönetilebilir durumlara dönüşür.</p>
+                
+                <p>Unutulmamalıdır ki her dağ, çıkılmaya başlanmadan önce devasa ve aşılamaz görünür. Ancak zirvesine ulaşıldığında sunduğu manzara, verilen tüm emeğin karşılığını fazlasıyla verir.</p>
+                
+                <p><strong>Bu süreçte önemli olan kusursuz olmak değil; gerçekçi olmak, adım atmak ve vazgeçmemektir.</strong></p>
+            </div>
+
+            <div class="post-meta">
+              <span class="post-author"><i class="fas fa-user-edit"></i> MEK Ekibi</span>
+              <span class="post-date"><i class="fas fa-calendar-day"></i> 14 Aralık 2025</span>
+            </div>
+            <span class="read-more-btn">DEVAMINI OKU <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="blog-post-card clickable-card" onclick="openBlogModal(this)">
+          <div class="post-image-wrapper">
+            <img src="{{ url_for('static', filename='images/blog-kapak.jpg') }}" alt="Blog Kapak" class="blog-cover-image">
+          </div>
+          <div class="post-content">
+            <span class="post-category">REHBERLİK VE MOTİVASYON</span>
+            <h2 class="post-title">Motivasyon Üzerine Doğru Bir Bakış</h2>
+            <p class="post-excerpt">
+              Motivasyon, belki de son yıllarda en çok konuşulan, izlenen ve üzerine en fazla fikir üretilen kavramlardan biridir. Ne yazık ki çoğu zaman başarısız süreçlerin ve olumsuz sonuçların...
+            </p>
+
+            <div class="blog-full-content" style="display:none;">
+                <p>Motivasyon, belki de son yıllarda en çok konuşulan, izlenen ve üzerine en fazla fikir üretilen kavramlardan biridir. Ne yazık ki çoğu zaman başarısız süreçlerin ve olumsuz sonuçların sorumluluğu bu kavrama yüklenir; adeta bir “günah keçisi” rolü biçilir. Oysa motivasyon kelimesinin kökeni, hareket etmek ve harekete geçmek anlamına dayanır.</p>
+                
+                <p>Günümüzde ise motivasyon, etimolojik kökeninden bir miktar uzaklaşarak daha çok ilham kavramına yakın bir noktada konumlandırılmaktadır. Bu durum, ilhamın olumsuz olduğu anlamına gelmez; ancak ilham, daha çok yaratıcılık ve sanatla ilişkili bir kavramdır. Oysa uzun ve zorlu süreçlerin büyük bir kısmı ilhamdan ziyade dayanıklılık, irade ve karakter gerektirir.</p>
+                
+                <p>Bu nedenle hummalı bir çalışmanın başlangıcında mutlaka var olması gereken motivasyonun doğru anlaşılması ve ona giden yolların iyi idrak edilmesi büyük önem taşır.</p>
+                
+                <h3>Yeterlilik Duygusu ve Zihinsel Süreçler</h3>
+                <p>Her ne kadar aksi iddia edilse de yeterlilik duygusu insanın zihninde başlayan bir süreçtir. Verilecek emeğin karşılığının alınamayacağı endişesi ya da belirlenen hedeflere yeterli olunamayacağı düşüncesi, öğrencilerimizin motivasyonunu en çok aşağı çeken yanlış inanışlardan biridir.</p>
+                
+                <p>Oysa bu eşik bir kez aşılabildiğinde;</p>
+                <ul style="list-style: none; padding-left: 0; margin: 15px 0;">
+                    <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: #4da6ff; margin-right: 8px;"></i> “Ben bu işi yapabilirim.”</li>
+                    <li><i class="fas fa-check" style="color: #4da6ff; margin-right: 8px;"></i> “Ben bu hedefe yeterliyim.”</li>
+                </ul>
+                <p>duyguları öğrencimizin iç dünyasında yer etmeye başladığında, kendi potansiyeline yaklaşması çok daha kolay hâle gelir.</p>
+                
+                <p>Bu noktada öğrencilerimizde sıkça karşılaştığımız temel sorunlardan biri; ilkokuldan ya da ortaokulun başlarından itibaren kazanılmış bir ders çalışma alışkanlığının ve buna eşlik eden pozitif geri dönüşlerin olmamasıdır. Böyle bir geçmiş yoksa, ders çalışma süreci öğrencinin zihninde genellikle zorlu, belirsiz ve sonucunun nereye varacağı kestirilemeyen bir boşluk hissi yaratır. Çünkü öğrenci, daha önce bu “akademik dağın” küçük tepelerine dahi çıkmamıştır.</p>
+                
+                <p>Bu durum da <em>“Çıkabilir miyim?”, “Buna layık mıyım?”</em> gibi gerçekçi olmayan ama yıpratıcı düşünceleri beraberinde getirir. Yetersizlik hissi derinleştikçe, öğrenci daha çekingen, gerçeklerle yüzleşmekten daha kaçınan bir tavır geliştirebilir.</p>
+                
+                <h3>İlk Adımın Gücü</h3>
+                <p>Oysa dönüp bakıldığında “İyi ki başlamışım” denilen her yol tek bir adımla başlar. İleride atılıp atılamayacağı belirsiz adımların endişesindense, küçük de olsa atılan o ilk adım, hedefe yaklaştıran tek gerçek hamledir.</p>
+                
+                <p>Bazen yapılması gereken şey; derin bir nefes almak, kafayı suya gömüp kulaç atmaya başlamaktır. Daha ilk kulaçtan itibaren hissedilen <strong>“Ben bunu yapabiliyorum”</strong> duygusu, yavaş yavaş tüm bünyeyi sarar. Ve bir türlü bulunamayan, dışarıdan beklenen motivasyon; insanın içinden dışına doğru kendiliğinden akmaya başlar.</p>
+            </div>
+
+            <div class="post-meta">
+              <span class="post-author"><i class="fas fa-user-edit"></i> MEK Ekibi</span>
+              <span class="post-date"><i class="fas fa-calendar-day"></i> 20 Aralık 2025</span>
+            </div>
+            <span class="read-more-btn">DEVAMINI OKU <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="blog-post-card coming-soon">
+          <div class="post-image-wrapper">
+            <img src="{{ url_for('static', filename='images/blog-kapak.jpg') }}" alt="Blog Kapak" class="blog-cover-image">
+          </div>
+          <div class="post-content">
+            <span class="post-category">VERİMLİ ÇALIŞMA</span>
+            <h2 class="post-title">Pomodoro Tekniği ile Zaman Yönetimi</h2>
+            <p class="post-excerpt">
+              Daha az zamanda daha verimli çalışmak mümkün mü? Pomodoro tekniğinin incelikleri çok yakında burada olacak.
+            </p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fas fa-hourglass-half"></i> Hazırlanıyor...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="pagination">
+        <a href="#" class="page-link active">1</a>
+        <a href="#" class="page-link disabled">2</a>
+        <a href="#" class="page-link disabled"><i class="fas fa-chevron-right"></i></a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="section-content">
+      <h2>Eğitim Yolculuğunuzda Rehberiniz Olalım</h2>
+      <p>Blog yazılarımızdaki ipuçlarını kişisel planınıza uyarlamak için bizimle iletişime geçin.</p>
+      <a href="{{ url_for('home') }}#iletisim" class="cta-btn">İLETİŞİME GEÇİN</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="section-content footer-container">
+      <div class="footer-col logo-col">
+        <a href="{{ url_for('home') }}" class="footer-logo">MEK</a>
+        <p>Eğitim ve danışmanlıkta güvenilir adresiniz.</p>
+        
+        <div class="social-links">
+          <a href="https://www.instagram.com/mekegitimdanismanlik/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          
+          <a href="https://www.youtube.com/@MekEgitim" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          
+          <a href="https://www.linkedin.com/company/KULLANICI_ADINIZ" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          
+          <a href="https://twitter.com/KULLANICI_ADINIZ" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          
+          <a href="https://www.facebook.com/KULLANICI_ADINIZ" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        </div>
+      
+      <div class="footer-col">
+        <h4>Hızlı Bağlantılar</h4>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Anasayfa</a></li>
+          <li><a href="{{ url_for('about') }}">Hakkımızda</a></li>
+          <li><a href="{{ url_for('services') }}">Hizmetler</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('home') }}#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col contact-info">
+        <h4>İletişim</h4>
+        <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+        <p><i class="fas fa-envelope"></i> info@mekegitimdanismanlik.com</p>
+        <p><i class="fas fa-phone"></i> +90 533 420 2195</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2024 MEK Eğitim Danışmanlık. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <div id="blogModal" class="service-modal"> <div class="service-modal-content">
+      <span class="service-close-btn" onclick="closeBlogModal()">&times;</span>
+      <span id="modalCategory" style="display:block; color:#4da6ff; font-weight:700; margin-bottom:10px; font-size:14px;"></span>
+      <h3 id="modalTitle" style="margin-top:0;">Blog Başlığı</h3>
+      <div id="modalBody" class="modal-body-text">
+        </div>
+      <div id="modalMeta" style="margin-top:30px; padding-top:15px; border-top:1px solid #eee; color:#888; font-size:13px; font-style:italic;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navbar Scroll
+    window.addEventListener("scroll", function() {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Mobil Menü
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburgerIcon = document.querySelector('.hamburger-menu i');
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        hamburgerIcon.classList.remove('fa-bars');
+        hamburgerIcon.classList.add('fa-times');
+      } else {
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+      }
+    }
+
+    // --- BLOG MODAL FONKSİYONLARI ---
+    function openBlogModal(card) {
+        // Kartın içindeki verileri çek
+        const category = card.querySelector('.post-category').innerText;
+        const title = card.querySelector('.post-title').innerText;
+        const fullContent = card.querySelector('.blog-full-content').innerHTML;
+        const meta = card.querySelector('.post-meta').innerHTML;
+        
+        // Modalı doldur
+        document.getElementById('modalCategory').innerText = category;
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBody').innerHTML = fullContent;
+        document.getElementById('modalMeta').innerHTML = meta;
+        
+        // Modalı göster
+        const modal = document.getElementById('blogModal');
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Arka plan kaymasını engelle
+    }
+
+    function closeBlogModal() {
+        const modal = document.getElementById('blogModal');
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Dışarı tıklayınca kapat
+    window.onclick = function(event) {
+        const modal = document.getElementById('blogModal');
+        if (event.target == modal) {
+            closeBlogModal();
+        }
+    }
+  </script>
+
+</body>
+</html>
