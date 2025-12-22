@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+/* Yatay taşmayı engelle */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 /* GENEL BAŞLIKLAR: Playfair Display */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
@@ -28,13 +34,17 @@ a {
 }
 
 /* =========================================
-   2. NAVBAR VE MENÜ
+   2. NAVBAR VE MENÜ (DÜZELTİLDİ)
    ========================================= */
 .navbar {
-  background-color: #001F3F; /* SABİT LACİVERT */
+  background-color: #001F3F; /* Başlangıç rengi */
   padding: 15px 40px;
-  position: sticky;
+  
+  /* HATA DÜZELTİLDİ: sticky YERİNE fixed YAPILDI */
+  position: fixed; 
+  
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
   transition: all 0.4s ease;
@@ -78,19 +88,6 @@ a {
   transition: color 0.4s;
 }
 .navbar.scrolled .nav-links a { color: #001F3F; font-weight: 600; }
-
-/* Arama Kutusu */
-.search-box { display: flex; align-items: center; gap: 5px; }
-.search-box input {
-  padding: 6px 10px;
-  border-radius: 4px;
-  border: none;
-  background-color: rgba(255,255,255,0.9);
-  transition: all 0.4s;
-}
-.navbar.scrolled .search-box input { border: 1px solid #ddd; background-color: #f9f9f9; }
-.search-box button { background: none; border: none; color: #fff; font-size: 16px; transition: color 0.4s; }
-.navbar.scrolled .search-box button { color: #001F3F; }
 
 /* Hamburger Menü */
 .hamburger-menu {
@@ -733,22 +730,106 @@ a.clickable-card:hover { transform: translateY(-5px); }
 .about-header-bg h1 { color: #fff !important; }
 .about-header-bg p { color: #ddd !important; }
 
-/* Mobil Uyum (768px altı için) */
+
+/* =========================================
+   6. MOBİL UYUMLULUK (RESPONSIVE)
+   ========================================= */
+
 @media (max-width: 768px) {
-    .blog-grid {
-        /* Tek kolonlu yapı */
-        grid-template-columns: 1fr;
-    }
+  
+  /* --- GENEL METİN VE YAPISAL DÜZELTMELER --- */
+  section { padding: 50px 20px; }
+  .section-content { width: 100%; }
+
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 1.2rem; }
+  
+  .about-inner, .team-member, .contact-container { flex-direction: column; }
+  .about-image, .about-text, .team-photo, .team-info, .footer-col { width: 100%; }
+  
+  .about-section h2, .team-section h2, .services-section h2 { font-size: 26px; }
+  .page-header h1 { font-size: 28px; }
+  
+  .service-row, .service-row.reverse { flex-direction: column-reverse; gap: 30px; margin-bottom: 60px; }
+  .service-text { width: 100%; }
+  .service-img-wrapper { width: 100%; }
+  .service-img-placeholder { height: 250px; min-height: auto; }
+  
+  .company-hero-image { height: 250px; }
+  
+  .team-card-horizontal { flex-direction: column; }
+  .member-img { width: 100%; height: 250px; }
+  .member-details { width: 100%; padding: 20px; }
+  
+  .flash-messages { top: 70px; right: 10px; left: 10px; max-width: 100%; }
+  .carousel-btn { font-size: 30px; }
+  
+  /* Modal Düzeltmeleri */
+  .service-modal-content { margin: 15% auto; padding: 25px; width: 95%; }
+  .video-modal-content { width: 95%; }
+  .close-btn { top: 5px; right: 15px; font-size: 30px; }
+  #videoTitle { font-size: 16px; padding: 10px 15px; }
+  
+  .blog-grid { grid-template-columns: 1fr; }
+  .post-content { padding: 20px; }
+  .post-title { font-size: 20px; }
+  .post-image-wrapper { height: 200px; }
+
+  /* --- NAVİGASYON (MOBİL MENÜ) DÜZELTMESİ --- */
+  
+  /* 1. Hamburger Menü İkonunu Görünür Yap */
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+    z-index: 1001; /* Menünün üstünde kalsın */
+  }
+
+  /* 2. Linkleri Gizle ve Mobilde Dikey Yap */
+  .nav-links {
+    position: absolute;
+    top: 100%; /* Navbar'ın hemen altına */
+    left: 0;
+    width: 100%;
+    background-color: #001F3F; /* Navbar ile aynı renk */
+    flex-direction: column; /* Linkleri alt alta diz */
+    align-items: center;
+    padding: 20px 0;
     
-    .post-content {
-        padding: 20px;
-    }
+    /* Menü kapalıyken gizle */
+    display: none; 
+    
+    /* Şık bir gölge ekle */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
 
-    .post-title {
-        font-size: 20px;
-    }
+  /* 3. Menü Açıldığında (.active sınıfı geldiğinde) Göster */
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
 
-    .post-image-wrapper {
-        height: 200px;
-    }
+  /* Menü açılış animasyonu */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Linklerin Arasını Aç */
+  .nav-links a {
+    margin: 15px 0;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  /* 4. Arama Kutusunu Mobilde Gizle (Yer kalmadığı için) */
+  .search-box {
+    display: none;
+  }
 }
